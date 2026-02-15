@@ -20,7 +20,7 @@ func _ready() -> void:
 	var output = []
 	var executable_path
 	var app_bundle_path
-    DisplayServer.window_set_title("Dear ImGui File Dialogs")
+	DisplayServer.window_set_title("Dear ImGui File Dialogs")
 	# Select a Custom Theme for All Dialogs 
 	# Classic=-1, Dark=0, Light=1, Custom=2
 	# Example themes -1 to 1 are from ImGui
