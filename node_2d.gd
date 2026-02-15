@@ -44,6 +44,8 @@ func _ready() -> void:
 	OS.set_environment("IMGUI_POPS_COLOR_2", "0.07")
 	# Show a Cancel Button in the Input Dialogs
 	OS.set_environment("IMGUI_DIALOG_CANCELABLE", "1")
+	# Set the Font File(s) for the Dialogs (Line-Feed "\n" Separated)
+	OS.set_environment("IMGUI_FONT_FILES", ProjectSettings.globalize_path("res://") + "Roboto-Medium.ttf")
 	var filter = "Supported Image Files (*.png *.gif *.jpg *.jpeg)|*.png;*.gif;*.jpg;*.jpeg|PNG Image Files (*.png)|*.png|GIF Image Files (*.gif)|*.gif|JPEG Image Files (*.jpg *.jpeg)|*.jpg;*.jpeg"
 	match OS.get_name():
 		"Windows":
