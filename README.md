@@ -1,5 +1,5 @@
 # IMFileDialogs Redot Engine Extension
-Create Dear ImGui Dialog Boxes, (Both File Selection and Beyond), in GameMaker
+Create Dear ImGui Dialog Boxes, (Both File Selection and Beyond), in Redot Engine
 
 ![screenshot0](screenshots/screenshot0.png)
 
