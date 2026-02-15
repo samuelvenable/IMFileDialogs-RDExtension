@@ -1,2 +1,2 @@
-# IMFileDialogs-RDExtension
-Create Dear ImGui Dialog Boxes, (Both File Selection and Beyond), in Redot Engine
+# IMFileDialogs Redot Engine Extension
+Create Dear ImGui Dialog Boxes, (Both File Selection and Beyond), in GameMaker
