@@ -14,3 +14,7 @@ config/name="IMFileDialogs"
 run/main_scene="uid://dj07ytal2ikv1"
 config/features=PackedStringArray("26.1", "Forward Plus", "Redot")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

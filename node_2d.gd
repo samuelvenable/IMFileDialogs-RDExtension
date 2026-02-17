@@ -20,11 +20,12 @@ func _ready() -> void:
 	var output = []
 	var executable_path
 	var app_bundle_path
-	var parent_directory = "./"
+	var parent_directory = ""
+	await get_tree().create_timer(1.0).timeout
 	if OS.has_feature("editor") == true:
 		parent_directory = ProjectSettings.globalize_path("res://")
-	if OS.has_feature("standalone") == true:
-		parent_directory = OS.get_executable_path().get_base_dir()
+	else:
+		parent_directory = OS.get_executable_path().get_base_dir() + "/"
 	get_window().title = "Dear ImGui File Dialogs"
 	# Select a Custom Theme for All Dialogs 
 	# Classic=-1, Dark=0, Light=1, Custom=2
