@@ -26,7 +26,6 @@ func _ready() -> void:
 		parent_directory = ProjectSettings.globalize_path("res://")
 	else:
 		parent_directory = OS.get_executable_path().get_base_dir() + "/"
-	DisplayServer.window_set_title("Dear ImGui File Dialogs")
 	get_window().title = "Dear ImGui File Dialogs"
 	# Select a Custom Theme for All Dialogs 
 	# Classic=-1, Dark=0, Light=1, Custom=2
