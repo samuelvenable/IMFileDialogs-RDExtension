@@ -20,6 +20,11 @@ func _ready() -> void:
 	var output = []
 	var executable_path
 	var app_bundle_path
+	var parent_directory
+	if Engine.is_editor_hint():
+		parent_directory = ProjectSettings.globalize_path("res://")
+	else:
+		parent_directory = OS.get_executable_path().get_base_dir()
 	get_window().title = "Dear ImGui File Dialogs"
 	# Select a Custom Theme for All Dialogs 
 	# Classic=-1, Dark=0, Light=1, Custom=2
@@ -45,18 +50,18 @@ func _ready() -> void:
 	# Show a Cancel Button in the Input Dialogs
 	OS.set_environment("IMGUI_DIALOG_CANCELABLE", "1")
 	# Set the Font File(s) for the Dialogs (Line-Feed "\n" Separated)
-	OS.set_environment("IMGUI_FONT_FILES", ProjectSettings.globalize_path("res://") + "Roboto-Medium.ttf")
+	OS.set_environment("IMGUI_FONT_FILES", parent_directory + "Roboto-Medium.ttf")
 	var filter = "Supported Image Files (*.png *.gif *.jpg *.jpeg)|*.png;*.gif;*.jpg;*.jpeg|PNG Image Files (*.png)|*.png|GIF Image Files (*.gif)|*.gif|JPEG Image Files (*.jpg *.jpeg)|*.jpg;*.jpeg"
 	match OS.get_name():
 		"Windows":
-			executable_path = ProjectSettings.globalize_path("res://") + "filedialogs.exe"	
+			executable_path = parent_directory + "filedialogs.exe"	
 		"macOS":
-			app_bundle_path = ProjectSettings.globalize_path("res://") + "filedialogs.app"
-			executable_path = ProjectSettings.globalize_path("res://") + "filedialogs.app/Contents/MacOS/filedialogs"
+			app_bundle_path = parent_directory + "filedialogs.app"
+			executable_path = parent_directory + "filedialogs.app/Contents/MacOS/filedialogs"
 			OS.execute("xattr", ["-d", "-r", "com.apple.quarantine", app_bundle_path], output, true)
 			OS.execute("chmod", ["u+x", executable_path], output, true)
 		"Linux":
-			executable_path = ProjectSettings.globalize_path("res://") + "filedialogs.AppImage"
+			executable_path = parent_directory + "filedialogs.AppImage"
 			OS.execute("chmod", ["u+x", executable_path], output, true)
 	execute_and_echo_output(executable_path, ["--show-message", "This is a dialog box. Click OK to continue."], output)
 	execute_and_echo_output(executable_path, ["--show-question", "Here is a question box. Yes or no?"], output)
